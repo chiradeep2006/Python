@@ -1,0 +1,15 @@
+def isPal(s):
+    return s == s[::-1]
+
+def solve(s, path):
+    if not s:
+        print(path)
+        return
+
+    for i in range(1, len(s)+1):
+        part = s[:i]
+        if isPal(part):
+            solve(s[i:], path + [part])
+
+s = input()
+solve(s, [])
